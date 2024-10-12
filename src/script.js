@@ -1,27 +1,35 @@
 const num1Input = document.getElementById("num1-input")
 const num2Input = document.getElementById("num2-input")
-const resultText = docuemnt.getElementById("result")
+const resultText = document.getElementById("result")
 const calButton = document.getElementById("cal-btn")
 const noticeText = document.getElementById("notice")
 const operation = document.getElementsByName("operation")
-
+console.log(operation.value)
 const getNum1Input = () => num1Input.value;
 const getNum2Input = () => num2Input.value;
-const getOperation = () => operation.value;
+const getOperation = () => {
+    for (i = 0; i<operation.length; i++) {
+        if (operation[i].type = "radio") {
+            if (operation[i].checked) {
+                return operation[i].value;
+            }
+        }
+    }
+};
 
 const calculate = () => {
-    const num1 = parseInt(getNum1Input());
-    const num2 = parseInt(getNum2Input());
+    const num1 = getNum1Input();
+    const num2 = getNum2Input();
     // const operation = getOperation();
 
     if (isNaN(num1) || isNaN(num2)) {
-        // noticeText.textContent = "Hãy điền giá trị cho 2 số";
-        alert("Hãy điền giá trị cho 2 số");
+        noticeText.textContent = "Hãy điền giá trị cho 2 số";
+        
         return;
     }
 
     let result;
-    switch (getOperation()) {
+    switch (getOperation()) { 
         case "plus":
             result = num1 + num2;
             break;
@@ -46,6 +54,7 @@ const calculate = () => {
 }
 
 calButton.addEventListener("click", calculate);
+
 // const cleanInputString = (str) => {
 //     // const charArray = [/[.]/g, /[,]/g, /[-]/g, /[_]/g, /[ ]/g]
 //     // for (const char of charArray) {
