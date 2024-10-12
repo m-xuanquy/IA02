@@ -5,8 +5,8 @@ const calButton = document.getElementById("cal-btn")
 const noticeText = document.getElementById("notice")
 const operation = document.getElementsByName("operation")
 console.log(operation.value)
-const getNum1Input = () => num1Input.value;
-const getNum2Input = () => num2Input.value;
+const getNum1Input = () => parseInt(num1Input.value);
+const getNum2Input = () => parseInt(num2Input.value);
 const getOperation = () => {
     for (i = 0; i<operation.length; i++) {
         if (operation[i].type = "radio") {
@@ -23,7 +23,7 @@ const calculate = () => {
     // const operation = getOperation();
 
     if (isNaN(num1) || isNaN(num2)) {
-        noticeText.textContent = "Hãy điền giá trị cho 2 số";
+        noticeText.textContent = "Hãy điền giá trị cho cả 2 số";
         
         return;
     }
