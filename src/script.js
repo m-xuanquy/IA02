@@ -34,15 +34,12 @@ const calculate = () => {
         return;
     }
 
-    if (!Number(num1)) {
-        noticeText.textContent = "Giá trị nhập ở Số thứ nhất không phải là số";
-        return; 
-    }
 
-    if (!Number(num2)) {
-        noticeText.textContent = "Giá trị nhập ở Số thứ hai không phải là số";
-        return; 
-    }
+
+    // if (!Number(num2)) {
+    //     noticeText.textContent = "Giá trị nhập ở Số thứ hai không phải là số";
+    //     return; 
+    // }
 
 
     let result;
@@ -69,5 +66,35 @@ const calculate = () => {
     }
     resultText.textContent = result;
 }
+
+num1Input.addEventListener('input', function() {
+    const num1 = getNum1Input();
+    
+    if (!num1) {}
+    else if (!Number(num1)) {
+        noticeText.textContent = "Giá trị nhập ở Số thứ nhất không phải là số";
+       
+    }
+    else {
+        noticeText.textContent = "";
+    }
+});
+
+
+num2Input.addEventListener('input', function() {
+  
+    const num2 = getNum2Input();
+    if (!num2) {
+
+    }
+    else if (!Number(num2)) {
+        noticeText.textContent = "Giá trị nhập ở Số thứ hai không phải là số";
+       
+    }
+    else {
+        noticeText.textContent = "";
+    }
+});
+
 
 calButton.addEventListener("click", calculate);
