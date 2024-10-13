@@ -70,11 +70,12 @@ const calculate = () => {
 num1Input.addEventListener('input', function() {
     const num1 = getNum1Input();
     
-    if (!num1) {}
+    if (!num1 || num1 == "0") {}
     else if (!Number(num1)) {
         noticeText.textContent = "Giá trị nhập ở Số thứ nhất không phải là số";
-       
     }
+ 
+    
     else {
         noticeText.textContent = "";
     }
@@ -84,13 +85,14 @@ num1Input.addEventListener('input', function() {
 num2Input.addEventListener('input', function() {
   
     const num2 = getNum2Input();
-    if (!num2) {
+    if (!num2 || num2 == "0") {
 
     }
     else if (!Number(num2)) {
         noticeText.textContent = "Giá trị nhập ở Số thứ hai không phải là số";
-       
     }
+
+    
     else {
         noticeText.textContent = "";
     }
