@@ -34,8 +34,15 @@ const calculate = () => {
         return;
     }
 
+    if (!Number(num1)) {
+        noticeText.textContent = "Giá trị nhập ở Số thứ nhất không phải là số";
+        return;
+    }
 
-
+    if (!Number(num2)) {
+        noticeText.textContent = "Giá trị nhập ở Số thứ hai không phải là số";
+        return;
+    }
     // if (!Number(num2)) {
     //     noticeText.textContent = "Giá trị nhập ở Số thứ hai không phải là số";
     //     return; 
@@ -67,10 +74,12 @@ const calculate = () => {
     resultText.textContent = result;
 }
 
-num1Input.addEventListener('input', function() {
+num1Input.addEventListener('focusout', function() {
     const num1 = getNum1Input();
     
-    if (!num1 || num1 == "0") {}
+    if (!num1 || num1 == "0") {
+        noticeText.textContent = "";
+    }
     else if (!Number(num1)) {
         noticeText.textContent = "Giá trị nhập ở Số thứ nhất không phải là số";
     }
@@ -81,18 +90,41 @@ num1Input.addEventListener('input', function() {
     }
 });
 
+num1Input.addEventListener('input', function() {
+    const num1 = getNum1Input();
+    
+    if (!num1 || num1 == "0") {
+        noticeText.textContent = ""
+    }
+ 
+    else {
+        noticeText.textContent = "";
+    }
+});
 
-num2Input.addEventListener('input', function() {
+num2Input.addEventListener('focusout', function() {
   
     const num2 = getNum2Input();
     if (!num2 || num2 == "0") {
-
+        noticeText.textContent = "";
     }
     else if (!Number(num2)) {
         noticeText.textContent = "Giá trị nhập ở Số thứ hai không phải là số";
     }
 
     
+    else {
+        noticeText.textContent = "";
+    }
+});
+
+num2Input.addEventListener('input', function() {
+    const num2 = getNum1Input();
+    
+    if (!num2 || num2 == "0") {
+        noticeText.textContent = ""
+    }
+ 
     else {
         noticeText.textContent = "";
     }
