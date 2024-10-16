@@ -22,7 +22,6 @@ const calculate = () => {
     noticeText.textContent = "";
     const num1 = getNum1Input();
     const num2 = getNum2Input();
-    // const operation = getOperation();
 
     if (!num1) {
         noticeText.textContent = "Hãy điền giá trị cho Số thứ nhất";
@@ -34,20 +33,15 @@ const calculate = () => {
         return;
     }
 
-    if (!Number(num1)) {
+    if (!Number(num1) && num1 != 0 ) {
         noticeText.textContent = "Giá trị nhập ở Số thứ nhất không phải là số";
         return;
     }
 
-    if (!Number(num2)) {
+    if (!Number(num2) && num2 != 0) {
         noticeText.textContent = "Giá trị nhập ở Số thứ hai không phải là số";
         return;
     }
-    // if (!Number(num2)) {
-    //     noticeText.textContent = "Giá trị nhập ở Số thứ hai không phải là số";
-    //     return; 
-    // }
-
 
     let result;
     switch (getOperation()) { 
